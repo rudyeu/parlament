@@ -1,0 +1,422 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --epp-blue:#003399;
+  --epp-blue-light:#e6ecff;
+  --epp-blue-soft:#f4f7ff;
+  --epp-gray:#6b7280;
+  --epp-border:#d9e1f2;
+}
+
+body{
+  font-family:var(--font-sans);
+  background:#f8fafc;
+  color:#1f2937;
+}
+
+.cs{
+  max-width:900px;
+  padding:1rem 0;
+}
+
+/* TABY */
+.tab-bar{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-bottom:1.5rem;
+  border-bottom:2px solid var(--epp-border);
+  padding-bottom:10px;
+}
+
+.tab{
+  padding:8px 16px;
+  border-radius:6px 6px 0 0;
+  border:1px solid transparent;
+  background:transparent;
+  cursor:pointer;
+  font-size:13px;
+  color:var(--epp-gray);
+  transition:all .2s;
+  font-weight:500;
+}
+
+.tab.active{
+  background:white;
+  color:var(--epp-blue);
+  border:1px solid var(--epp-border);
+  border-bottom:2px solid white;
+}
+
+.tab:hover{
+  color:var(--epp-blue);
+  background:var(--epp-blue-soft);
+}
+
+/* SEKCE */
+.section{display:none}
+.section.active{display:block}
+
+/* CARDY */
+.card{
+  background:white;
+  border:1px solid var(--epp-border);
+  border-radius:10px;
+  padding:1.1rem 1.3rem;
+  margin-bottom:14px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.04);
+}
+
+.card-title{
+  font-size:14px;
+  font-weight:600;
+  color:var(--epp-blue);
+  margin-bottom:10px;
+}
+
+/* TEXT */
+.bullet{
+  font-size:14px;
+  line-height:1.6;
+  padding:4px 0;
+  padding-left:18px;
+  position:relative;
+}
+
+.bullet::before{
+  content:"•";
+  position:absolute;
+  left:0;
+  color:var(--epp-blue);
+  font-weight:bold;
+}
+
+/* BADGES */
+.badge{
+  display:inline-block;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:999px;
+  font-weight:500;
+  margin:4px 4px 0 0;
+}
+
+.badge-blue{
+  background:var(--epp-blue-light);
+  color:var(--epp-blue);
+}
+
+.badge-green{
+  background:#e6f4ea;
+  color:#1b7f3a;
+}
+
+.badge-red{
+  background:#fdecea;
+  color:#b42318;
+}
+
+.badge-warn{
+  background:#fff4e5;
+  color:#b26a00;
+}
+
+/* STATY */
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.stat{
+  background:var(--epp-blue-soft);
+  border:1px solid var(--epp-border);
+  border-radius:8px;
+  padding:12px;
+  text-align:center;
+}
+
+.stat-num{
+  font-size:20px;
+  font-weight:600;
+  color:var(--epp-blue);
+}
+
+.stat-label{
+  font-size:11px;
+  color:var(--epp-gray);
+  margin-top:4px;
+}
+
+/* ARGUMENTY */
+.arg-header{
+  font-size:13px;
+  font-weight:600;
+  padding:7px 10px;
+  border-radius:8px 8px 0 0;
+}
+
+.arg-pro .arg-header{
+  background:#e6f4ea;
+  color:#1b7f3a;
+}
+
+.arg-con .arg-header{
+  background:#fdecea;
+  color:#b42318;
+}
+
+.arg-body{
+  border:1px solid var(--epp-border);
+  border-top:none;
+  border-radius:0 0 8px 8px;
+  padding:10px 12px;
+  background:white;
+}
+
+/* CITACE */
+.cite-box{
+  background:var(--epp-blue-soft);
+  border-left:4px solid var(--epp-blue);
+  border-radius:6px;
+  padding:10px 14px;
+  margin-bottom:10px;
+  font-size:14px;
+  font-style:italic;
+}
+
+/* NADPISY */
+.topic{
+  font-size:12px;
+  font-weight:600;
+  color:var(--epp-gray);
+  margin-bottom:6px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+h2{
+  font-size:16px;
+  font-weight:600;
+  color:var(--epp-blue);
+  margin-bottom:14px;
+}
+</style>
+<h2 class="sr-only">EPP cheatsheet pro simulaci europarlamentu – Euro 7</h2>
+<div class="cs">
+<div class="tab-bar">
+  <button class="tab active" onclick="show('epp')">EPP hodnoty</button>
+  <button class="tab" onclick="show('key')">Klíčové body Euro 7</button>
+  <button class="tab" onclick="show('stats')">Statistiky</button>
+  <button class="tab" onclick="show('args')">Argumenty PRO/CON</button>
+  <button class="tab" onclick="show('debate')">Debatní věty</button>
+</div>
+
+<div id="epp" class="section active">
+  <h2>Základní postoje a hodnoty EPP</h2>
+  <div class="card">
+    <div class="card-title">Klíčové ideové pilíře</div>
+    <div class="bullet">Středopravicová, křesťanskodemokratická a konzervativní strana — nejsilnější frakce EP od roku 1999</div>
+    <div class="bullet">Závazek ke snížení emisí o 55 % do 2030 a klimatické neutralitě do 2050 — ale cestou technologické neutrality, ne ideologie</div>
+    <div class="bullet">EPP odmítá jednostrannou podporu jen jedné technologie (BEV) — prosazuje, aby trh sám rozhodl (e-fuels, vodík, hybridní pohony)</div>
+    <div class="bullet">Průmyslová konkurenceschopnost EU je pro EPP stejně důležitá jako zelené cíle — nechceme deindustrializaci</div>
+    <div class="bullet">Priorita dostupnosti vozidel pro občany a malé firmy — regulace nesmí zdražit auta do nedostupnosti</div>
+    <div class="bullet">EPP vedlo při hlasování o Euro 7 alternativní většinu (EPP + ECR + Renew + ID) a prosadilo zmírnění původního návrhu Komise</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Postoj EPP k Euro 7 konkrétně</div>
+    <div class="bullet">EPP (spolu s ECR) aktivně tlačilo na zachování emisních limitů pro výfukové plyny na úrovni Euro 6 pro osobní auta a dodávky</div>
+    <div class="bullet">EPP podpořilo zavedení limitů pro emise z brzd a pneumatik — nová kategorie, kde EPP souhlasí s ambicí</div>
+    <div class="bullet">EPP prosadilo odložení termínů implementace — pro osobní auta o min. 2 roky (původně 2025, nyní nov. 2026/2027)</div>
+    <div class="bullet">EPP trvalo na zachování přístupu malých výrobců a flexibilitě prohlášení o shodě pro SME výrobce</div>
+    <div class="bullet">EPP zamítlo zahrnutí e-paliv do hodnocení CO₂ neutrality — považuje to za zásadní nedostatek nařízení</div>
+    <span class="badge badge-blue">Technologická neutralita</span>
+    <span class="badge badge-green">Průmyslová konkurenceschopnost</span>
+    <span class="badge badge-warn">Dostupnost pro občany</span>
+    <span class="badge badge-red">Proti deindustrializaci</span>
+  </div>
+</div>
+
+<div id="key" class="section">
+  <h2>Klíčové body nařízení Euro 7 (2024/1257)</h2>
+  <div class="card">
+    <div class="card-title">Co nařízení skutečně mění (vs. Euro 6)</div>
+    <div class="bullet">Výfukové limity NOx, CO, PM pro osobní auta (M1, N1) — zůstávají na úrovni Euro 6 (EPP to prosadilo)</div>
+    <div class="bullet">Těžká vozidla (autobusy, nákladní auta M2/M3/N2/N3) — zpřísněné limity: NOx max 200 mg/kWh v lab, 260 mg/kWh na silnici</div>
+    <div class="bullet">Poprvé regulovány emise z brzd: 3 mg/km pro čistá EV, 7 mg/km pro ostatní pohony (osobní auta)</div>
+    <div class="bullet">Nová regulace oděru pneumatik (mezní hodnoty zatím nezadány — stanoví Komise do 2027 pro C1 pneumatiky)</div>
+    <div class="bullet">Měření jemnějších částic PN10 (průměr ≥10 nm) místo dřívějšího PN23 — pokrok pro zdraví</div>
+    <div class="bullet">Povinná životnost baterie: M1 vozidla → 80 % kapacity po 5 letech / 100 000 km, 72 % po 8 letech / 160 000 km</div>
+    <div class="bullet">Povinný ekologický pas vozidla (digitální záznam emisí, výkonu baterie) — poprvé v historii EU</div>
+    <div class="bullet">Zákaz manipulačních zařízení a strategií — přísné sankce za „defeat devices"</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Časový harmonogram implementace</div>
+    <div class="bullet">29. 11. 2026 — nové typy vozidel M1 a N1 musí splňovat Euro 7</div>
+    <div class="bullet">29. 11. 2027 — všechna nová vozidla M1 a N1</div>
+    <div class="bullet">29. 5. 2028 — nové typy těžkých vozidel M2/M3/N2/N3</div>
+    <div class="bullet">29. 5. 2029 — všechna nová těžká vozidla</div>
+    <div class="bullet">1. 7. 2030 — malí výrobci vozidel M1/N1</div>
+    <div class="bullet">1. 7. 2028 — pneumatiky C1 (nové typy); 1. 7. 2030 — uvádění na trh</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Co Euro 7 neřeší (a kde je prostor pro pozměňovací návrhy)</div>
+    <div class="bullet">Neuznává e-paliva jako CO₂ neutrální — EPP to vidí jako klíčový nedostatek</div>
+    <div class="bullet">Emisní limity výfukových plynů osobních aut jsou fakticky na úrovni Euro 6 — kritici říkají, že jde o greenwashing</div>
+    <div class="bullet">Mezní hodnoty oděru pneumatik a emise z brzd od 2030 zatím nejsou číselně stanoveny — velká nejistota pro výrobce</div>
+    <div class="bullet">Sociální dopady přechodu na výrobce a zaměstnance nejsou dostatečně ošetřeny v tomto nařízení</div>
+  </div>
+</div>
+
+<div id="stats" class="section">
+  <h2>Statistiky a čísla do debaty</h2>
+  <div class="stat-grid">
+    <div class="stat"><div class="stat-num">330 tis.</div><div class="stat-label">předčasných úmrtí ročně v EU vlivem znečištění ovzduší (T&E)</div></div>
+    <div class="stat"><div class="stat-num">70 tis.</div><div class="stat-label">předčasných úmrtí ročně způsobených emisemi z dopravy (T&E)</div></div>
+    <div class="stat"><div class="stat-num">49–52 tis.</div><div class="stat-label">Deaths ročně vlivem NO₂ (EEA; road transport = největší zdroj)</div></div>
+    <div class="stat"><div class="stat-num">€100 mld.</div><div class="stat-label">Odhad zdravotních škod slabého Euro 7 do 2050 (CLOVE/Voxeurop)</div></div>
+    <div class="stat"><div class="stat-num">7 300</div><div class="stat-label">Předčasných úmrtí, která by původní návrh Komise ušetřil do 2050 (ICCT)</div></div>
+    <div class="stat"><div class="stat-num">€600 mld.</div><div class="stat-label">Roční ztráty EU způsobené znečištěním ovzduší = 4 % HDP (Clean Air Fund)</div></div>
+    <div class="stat"><div class="stat-num">1 700+</div><div class="stat-label">Předčasných úmrtí navíc kvůli odložení implementace vs. termín 2025 (ICCT)</div></div>
+    <div class="stat"><div class="stat-num">25 %</div><div class="stat-label">Podíl dopravy na skleníkových plynech EU; z toho 75 % silniční doprava (EEA)</div></div>
+    <div class="stat"><div class="stat-num">12 let</div><div class="stat-label">Průměrné stáří aut v EU (2020); v některých zemích až 17 let</div></div>
+    <div class="stat"><div class="stat-num">€15 mld.</div><div class="stat-label">Potenciální pokuty pro výrobce za nesplnění CO₂ cílů 2025 (odhad ACEA/Renault CEO)</div></div>
+    <div class="stat"><div class="stat-num">90 %</div><div class="stat-label">Podíl nevýfukových emisí na celkových emisích částic do 2050 díky elektrifikaci</div></div>
+    <div class="stat"><div class="stat-num">40 mil.</div><div class="stat-label">Nových vozidel v EU, na která se Euro 7 bude vztahovat (ICCT)</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Průmyslové a ekonomické argumenty</div>
+    <div class="bullet">Evropský automobilový průmysl zaměstnává přímo ~2,6 mil. lidí a nepřímo dalších ~10 mil. (ACEA 2023)</div>
+    <div class="bullet">Implementace čistého vzduchového opatření přináší ekonomický zisk €50–60 mld. ročně (Clean Air Fund)</div>
+    <div class="bullet">Čína 6b normy jsou již přísnější než Euro 7 pro osobní auta — EU riskuje ztrátu pozice světového lídra v emisních standardech (AECC)</div>
+    <div class="bullet">USA EPA navrhla v 2022/2024 snížit NOx+NMOG o 50 % do 2032 — EU za tímto vývojem zaostává</div>
+    <div class="bullet">70 % vozidel ve Varšavě (průzkum ICCT) je starší než je Euro 7 „hlavní životnost" (8 let/160 000 km) — stáří flotily je problém</div>
+  </div>
+</div>
+
+<div id="args" class="section">
+  <h2>Pravděpodobné debatní body — argumenty a protiargumenty</h2>
+
+  <div class="topic">1. Emisní limity výfukových plynů osobních aut</div>
+  <div class="arg-block arg-pro">
+    <div class="arg-header">PRO (za zachování nebo mírné zpřísnění vs. Euro 6)</div>
+    <div class="arg-body">
+      <div class="bullet">70 000 předčasných úmrtí ročně z dopravních emisí — zachování Euro 6 limitů pro auta je de facto nulový pokrok v ochraně zdraví (T&E, AECC)</div>
+      <div class="bullet">Technologie pro výrazné snížení emisí (katalyzátory, filtry pevných částic) jsou dostupné a finančně přijatelné — AECC odhaduje přidané náklady na výrobu pod €100/vůz</div>
+      <div class="bullet">Čína a USA již zavedly přísnější normy — EU ztrácí vedení, které měla od 90. let</div>
+      <div class="source">Zdroj: AECC, ICCT, Transport & Environment</div>
+    </div>
+  </div>
+  <div class="arg-block arg-con">
+    <div class="arg-header">CON — EPP pozice (za zachování Euro 6 limitů pro osobní auta)</div>
+    <div class="arg-body">
+      <div class="bullet">Do 2035 budou osobní spalovací auta zakázána — nutit výrobce investovat miliardy do zlepšení ICE místo do EV je kontraproduktivní a ztráta zdrojů (argument EPP/ECR při hlasování 2023)</div>
+      <div class="bullet">Toto nařízení bylo kompromisem — přísnější limity by zdražily auta a poškodily dostupnost pro střední třídu</div>
+      <div class="bullet">Reálné snížení emisí přijde elektrifikací flotily, ne dalším utahováním šroubů na spalovacích motorech v posledních letech jejich existence</div>
+      <div class="source">Zdroj: Vondra (ECR/EPP rapporteur), EPP group positions, EP vote Nov 2023</div>
+    </div>
+  </div>
+
+  <div class="topic">2. E-paliva a technologická neutralita</div>
+  <div class="arg-block arg-pro">
+    <div class="arg-header">PRO (za zahrnutí e-paliv do nařízení)</div>
+    <div class="arg-body">
+      <div class="bullet">E-paliva jsou CO₂ neutrální — spalování syntetického paliva z obnovitelné elektrické energie je klimaticky ekvivalentní EV</div>
+      <div class="bullet">Zachování ICE infrastruktury s e-palivy chrání pracovní místa v automotive bez klimatické újmy — sociálně spravedlivější přechod</div>
+      <div class="bullet">Německo a Itálie (vládní strany) prosadily e-fuels výjimku pro CO₂ normy 2035 — logický krok rozšířit to na Euro 7</div>
+      <div class="source">Zdroj: EPP manifesto 2024, Bundesregierung, Bloomberg 2024</div>
+    </div>
+  </div>
+  <div class="arg-block arg-con">
+    <div class="arg-header">CON (proti zahrnutí e-paliv)</div>
+    <div class="arg-body">
+      <div class="bullet">E-paliva spalují stále produkují NOx, PM a další znečišťující látky — na kvalitu ovzduší ve městech nemají pozitivní vliv</div>
+      <div class="bullet">Výroba e-paliv je 5× méně energeticky efektivní než přímé nabíjení EV — masové využití je ekonomicky nerealistické</div>
+      <div class="bullet">Greenwashing riziko — e-fuels výjimka bez důsledné certifikace původu energie nepomůže klimatu</div>
+      <div class="source">Zdroj: Transport & Environment, ICCT</div>
+    </div>
+  </div>
+
+  <div class="topic">3. Regulace emisí z brzd a pneumatik</div>
+  <div class="arg-block arg-pro">
+    <div class="arg-header">PRO (za ambiciózní limity nevýfukových emisí)</div>
+    <div class="arg-body">
+      <div class="bullet">Do 2050 budou nevýfukové emise tvořit 90 % všech emisí částic z dopravy (bod 20 preambule nařízení) — zpozdění regulace znamená zdravotní škody</div>
+      <div class="bullet">Mikroplasty z pneumatik jsou největší zdrojem mikroplastů v životním prostředí — nařízení to samo přiznává</div>
+      <div class="bullet">EV mají nižší emise z brzd díky rekuperaci, ale více emisí z pneumatik (těžší auta) — regulace je technologicky neutrální a spravedlivá</div>
+      <div class="source">Zdroj: Preambule nařízení 2024/1257, čl. 20 a 15</div>
+    </div>
+  </div>
+  <div class="arg-block arg-con">
+    <div class="arg-header">CON (opatrně k předčasné regulaci)</div>
+    <div class="arg-body">
+      <div class="bullet">Metody měření oděru pneumatik ještě neexistují — mezní hodnoty jsou prázdné tabulky, Komise je má teprve vytvořit (do 2027 pro C1)</div>
+      <div class="bullet">Riziko, že předběžná regulace bez metodiky povede k nejistotě a soudním sporům výrobců</div>
+      <div class="bullet">Harmonizace přes WP.29 OSN je správný přístup — unilaterální EU postup brzdí globální standardizaci</div>
+      <div class="source">Zdroj: Příloha I, tabulky 4-9; čl. 15 nařízení</div>
+    </div>
+  </div>
+
+  <div class="topic">4. Životnost baterie a důvěra spotřebitelů v EV</div>
+  <div class="arg-block arg-pro">
+    <div class="arg-header">PRO (přivítat ambiciózní požadavky na životnost)</div>
+    <div class="arg-body">
+      <div class="bullet">Garance 80 % kapacity po 5 letech / 100 000 km je klíčová pro trh ojetých EV — bez toho spotřebitelé nebudou EV kupovat</div>
+      <div class="bullet">Ekologický pas vozidla = transparentnost, která posiluje důvěru trhu a napomáhá přechodu na e-mobilitu</div>
+      <div class="source">Zdroj: Preambule čl. 22; příloha II tabulka 1</div>
+    </div>
+  </div>
+  <div class="arg-block arg-con">
+    <div class="arg-header">CON (rizika pro výrobce)</div>
+    <div class="arg-body">
+      <div class="bullet">Výrobci upozorňují, že přísné záruky na baterie zvýší náklady — bude se přenášet do ceny nových vozidel</div>
+      <div class="bullet">Požadavky jsou již nyní blízko dobrovolným závazkům výrobců — nařízení přidává byrokracii bez reálného přínosu</div>
+      <div class="source">Zdroj: Airclim.org, ACEA</div>
+    </div>
+  </div>
+</div>
+
+<div id="debate" class="section">
+  <h2>Věty a anekdoty do debaty</h2>
+  <div class="topic">Silné otevírací věty (EPP pozice)</div>
+  <div class="cite-box">"My v EPP věříme, že čisté ovzduší a zdravý průmysl jsou dvě strany téže mince — ne nepřátelé. Euro 7, jak bylo přijato, tento princip naplňuje."</div>
+  <div class="cite-box">"Nemůžeme nutit automobilky investovat miliardy do vylepšování spalovacích motorů v posledních deseti letech jejich existence, místo aby investovaly do elektromobility. To by byl špatný obchod — pro průmysl i pro klima."</div>
+  <div class="cite-box">"Technologická neutralita není ústupek průmyslu — je to princip, který říká: stanovme cíle, ale nechme firmy a trh najít nejlepší cestu."</div>
+
+  <div class="topic">K argumentu "Euro 7 je příliš slabé"</div>
+  <div class="cite-box">"Souhlas s tím, že bychom chtěli lepší vzduch. Ale regulace, která by zdražila průměrné auto o tisíce eur a zároveň by přinášela minimální zlepšení kvůli plánovanému zákazu ICE v roce 2035 — to není ambice, to je symbolická politika."</div>
+  <div class="cite-box">"Reálná změna v kvalitě ovzduší přijde z obnovy vozového parku. Průměrné auto v EU má 12 let. Náš úkol je zajistit, aby si lidé mohli dovolit nové, čistší auto — ne je regulacemi odradit od koupě."</div>
+
+  <div class="topic">K argumentu "EPP brání klimatickým cílům"</div>
+  <div class="cite-box">"EPP je stranou, která stojí za závazkem 55 % snížení emisí do roku 2030 a klimatickou neutralitou do 2050. Nesouhlasíme s tím, jak se těchto cílů dosáhne, ne s cíli samotnými."</div>
+  <div class="cite-box">"Cíle jsou závazné. Prostředky musí být chytré. Zakazovat e-paliva bez důkazu o jejich škodlivosti je ideologie, ne věda."</div>
+
+  <div class="topic">K emisím z brzd a pneumatik</div>
+  <div class="cite-box">"Euro 7 udělalo historický krok — poprvé reguluje emise z brzd a pneumatik. Toto EPP podporuje. A právě proto je důležité, aby metodika měření byla robustní a vědecky podložená — prázdné tabulky v příloze I jsou upomínkou, že tato práce ještě nebyla dokončena."</div>
+
+  <div class="topic">Anekdota / příběh do debaty</div>
+  <div class="cite-box">"V roce 1992, když Evropa zavedla Euro 1, průmysl říkal, že je to technicky nemožné. Dnes máme Euro 7. Každý krok vpřed byl výsledkem kompromisu mezi zdravím, technologií a ekonomikou. Euro 7 je dalším takovým krokem — ne posledním, ale realistickým."</div>
+  <div class="cite-box">"Čína má již přísnější normy výfukových plynů než Euro 7 pro osobní auta. Pokud nás to má znepokojovat, pak ne proto, že jsme jeli příliš pomalu — ale proto, že v dalším kole nesmíme zaostávat."</div>
+
+  <div class="topic">Rychlé faktické odpovědi</div>
+  <div class="card">
+    <div class="card-title">Pokud vám někdo řekne...</div>
+    <div class="bullet"><b>„Euro 7 je greenwashing"</b> → Souhlaste v části o osobních autech, ale poukažte na reálné přínosy pro těžká vozidla a nevýfukové emise. "Greenwashing začíná tam, kde přestáváme vyžadovat skutečnou změnu. Proto v dalším přezkumu musíme limity zpřísnit."</div>
+    <div class="bullet"><b>„EPP hájí zájmy automobilek"</b> → "EPP hájí zájmy 10 milionů zaměstnanců automotive průmyslu a milionů občanů, kteří musí mít přístup k dostupné dopravě."</div>
+    <div class="bullet"><b>„Proč odložení termínů?"</b> → "Regulace, která není implementovatelná, není regulace — je to fikce. Realistické termíny vedou k reálnému snížení emisí."</div>
+    <div class="bullet"><b>„Emise zabíjejí lidi"</b> → Přiznejte čísla (70 000 ročně z dopravy), ale ukažte kontext: flotila se obnovuje průměrně za 12 let. Klíčem je dostupnost nových aut, ne přísnost normy, které si výrobce splní v laboratoři.</div>
+  </div>
+</div>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
